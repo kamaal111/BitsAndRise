@@ -5,19 +5,19 @@ import PackageDescription
 
 let package = Package(
     name: "BitriseSDK",
+    platforms: [.iOS(.v10)],
     products: [
         .library(
             name: "BitriseSDK",
             targets: ["BitriseSDK"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/kamaal111/XiphiasNet", from: "3.0.5"),
-        .package(url: "https://github.com/kamaal111/ShrimpExtensions", from: "1.9.0")
+        .package(url: "https://github.com/kamaal111/XiphiasNet", from: "3.0.5")
     ],
     targets: [
         .target(
             name: "BitriseSDK",
-            dependencies: ["XiphiasNet", "ShrimpExtensions"]),
+            dependencies: ["XiphiasNet"]),
         .testTarget(
             name: "BitriseSDKTests",
             dependencies: ["BitriseSDK"]),

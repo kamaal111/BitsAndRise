@@ -28,13 +28,18 @@ class EntryViewController: UIHostingController<EntryContentView> {
         self.title = "BitsAndRise"
         self.navigationController?.navigationBar.prefersLargeTitles = true
 
-        var accessToken: String?
-        if let path = Bundle.main.path(forResource: "Secrets", ofType: "plist"),
-           let dict = NSDictionary(contentsOfFile: path) {
-            accessToken = dict["bitriseTestingAccessToken"] as? String
+        if networker.bitriseAccessToken == nil {
+            if let path = Bundle.main.path(forResource: "Secrets", ofType: "plist"),
+               let dict = NSDictionary(contentsOfFile: path) {
+                if let accessToken = dict["bitriseTestingAccessToken"] as? String {
+                    networker.setBitriseAccessToken(to: accessToken)
+                }
+            }
         }
-        guard let unwrappedAccessToken = accessToken else { return }
-        networker.bitrise.getMe(accessToken: unwrappedAccessToken) { completion in
+
+        guard networker.bitriseAccessToken != nil else { return }
+
+        networker.bitriseGetMe() { completion in
             print(completion)
         }
     }
