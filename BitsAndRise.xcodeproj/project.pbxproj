@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C155C9625D92C7500AAB735 /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C155C9525D92C7500AAB735 /* UIViewController+extensions.swift */; };
 		2CA1CEDE25D7FE5B0052E0F2 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA1CEDD25D7FE5B0052E0F2 /* Secrets.plist */; };
 		2CA1CEE325D8012C0052E0F2 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1CEE225D8012C0052E0F2 /* NetworkController.swift */; };
+		2CA1CEE825D87CF50052E0F2 /* EntryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1CEE725D87CF50052E0F2 /* EntryContentView.swift */; };
+		2CA1CEED25D87D200052E0F2 /* EntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1CEEC25D87D200052E0F2 /* EntryViewModel.swift */; };
 		2CC601DC25D7FD0B00A2C642 /* BitriseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 2CC601DB25D7FD0B00A2C642 /* BitriseSDK */; };
 		2CD5231F25D7EA3500C2C4F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5231E25D7EA3500C2C4F5 /* AppDelegate.swift */; };
 		2CD5232125D7EA3500C2C4F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5232025D7EA3500C2C4F5 /* SceneDelegate.swift */; };
@@ -40,8 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C155C9525D92C7500AAB735 /* UIViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extensions.swift"; sourceTree = "<group>"; };
 		2CA1CEDD25D7FE5B0052E0F2 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		2CA1CEE225D8012C0052E0F2 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		2CA1CEE725D87CF50052E0F2 /* EntryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryContentView.swift; sourceTree = "<group>"; };
+		2CA1CEEC25D87D200052E0F2 /* EntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewModel.swift; sourceTree = "<group>"; };
 		2CD5231B25D7EA3500C2C4F5 /* BitsAndRise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitsAndRise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD5231E25D7EA3500C2C4F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CD5232025D7EA3500C2C4F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C155C9425D92C5100AAB735 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2C155C9525D92C7500AAB735 /* UIViewController+extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		2CC601DA25D7FD0B00A2C642 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,16 +132,19 @@
 		2CD5231D25D7EA3500C2C4F5 /* BitsAndRise */ = {
 			isa = PBXGroup;
 			children = (
+				2C155C9425D92C5100AAB735 /* Extensions */,
 				2CD5232F25D7EA3700C2C4F5 /* Info.plist */,
+				2CA1CEDD25D7FE5B0052E0F2 /* Secrets.plist */,
 				2CD5231E25D7EA3500C2C4F5 /* AppDelegate.swift */,
+				2CA1CEE725D87CF50052E0F2 /* EntryContentView.swift */,
 				2CD5232225D7EA3500C2C4F5 /* EntryViewController.swift */,
+				2CA1CEEC25D87D200052E0F2 /* EntryViewModel.swift */,
+				2CA1CEE225D8012C0052E0F2 /* NetworkController.swift */,
 				2CD5235A25D7EA8A00C2C4F5 /* PersistenceController.swift */,
 				2CD5232025D7EA3500C2C4F5 /* SceneDelegate.swift */,
 				2CD5232A25D7EA3700C2C4F5 /* Assets.xcassets */,
 				2CD5232725D7EA3500C2C4F5 /* BitsAndRise.xcdatamodeld */,
 				2CD5232C25D7EA3700C2C4F5 /* LaunchScreen.storyboard */,
-				2CA1CEDD25D7FE5B0052E0F2 /* Secrets.plist */,
-				2CA1CEE225D8012C0052E0F2 /* NetworkController.swift */,
 			);
 			path = BitsAndRise;
 			sourceTree = "<group>";
@@ -309,6 +326,9 @@
 				2CA1CEE325D8012C0052E0F2 /* NetworkController.swift in Sources */,
 				2CD5231F25D7EA3500C2C4F5 /* AppDelegate.swift in Sources */,
 				2CD5232125D7EA3500C2C4F5 /* SceneDelegate.swift in Sources */,
+				2CA1CEED25D87D200052E0F2 /* EntryViewModel.swift in Sources */,
+				2CA1CEE825D87CF50052E0F2 /* EntryContentView.swift in Sources */,
+				2C155C9625D92C7500AAB735 /* UIViewController+extensions.swift in Sources */,
 				2CD5235B25D7EA8A00C2C4F5 /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct BitriseProfile: Codable {
+public struct BitriseProfile: BitriseMockable {
     public let username: String
     public let slug: String
     public let email: String
@@ -80,4 +80,18 @@ public struct BitriseProfile: Codable {
         try dataContrainer.encode(paymentProcessor, forKey: .paymentProcessor)
         try dataContrainer.encode(createdAt, forKey: .createdAt)
     }
+}
+
+public extension BitriseProfile {
+    static var preview: BitriseProfile = {
+        let date = Date()
+        return BitriseProfile(username: "Userios",
+                              slug: "b1234h213",
+                              email: "userios@email.com",
+                              avatarURL: "",
+                              hasUsedOrganizationTrial: false,
+                              dataID: 123,
+                              paymentProcessor: "Stripe",
+                              createdAt: date)
+    }()
 }

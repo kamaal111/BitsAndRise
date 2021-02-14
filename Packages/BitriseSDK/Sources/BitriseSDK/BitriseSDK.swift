@@ -9,17 +9,31 @@ import XiphiasNet
 import Foundation
 
 public struct BitriseSDK {
-    private let kowalskiAnalysis: Bool
     private let networker: XiphiasNetable
 
     public init(kowalskiAnalysis: Bool = false) {
         self.networker = XiphiasNet(kowalskiAnalysis: kowalskiAnalysis)
-        self.kowalskiAnalysis = kowalskiAnalysis
     }
 
-    public func getMe(accessToken: String, completion: @escaping (Result<BitriseProfile, Error>) -> Void) {
-        var request = URLRequest(endpoint: .me)
+    public func getMe(preview: Bool = false, accessToken: String, completion: @escaping (Result<BitriseProfile, Error>) -> Void) {
+        get(preview: preview, endpoint: .me, accessToken: accessToken, completion: completion)
+    }
+
+    public func getApps(preview: Bool = false, accessToken: String, completion: @escaping (Result<BitriseApps, Error>) -> Void) {
+        get(preview: preview, endpoint: .apps, accessToken: accessToken, completion: completion)
+    }
+
+    private func get<T: BitriseMockable>(preview: Bool, endpoint: Endpoint, accessToken: String, completion: @escaping (Result<T, Error>) -> Void) {
+        guard !preview else {
+            completion(.success(.preview))
+            return
+        }
+        var request = URLRequest(endpoint: endpoint)
         request.addValue(accessToken, forHTTPHeaderField: "Authorization")
         networker.request(from: request, completion: completion)
     }
+}
+
+public protocol BitriseMockable: Codable {
+    static var preview: Self { get }
 }

@@ -11,7 +11,7 @@ public class NetworkController {
 
     private(set) var bitriseAccessToken: String?
 
-    private let bitrise = BitriseSDK()
+    private let bitrise = BitriseSDK(kowalskiAnalysis: false)
 
     public init() { }
 
@@ -19,8 +19,14 @@ public class NetworkController {
         bitriseAccessToken = accessToken
     }
 
-    public func bitriseGetMe(completion: @escaping (Result<BitriseProfile, Error>) -> Void) {
-        bitrise.getMe(accessToken: bitriseAccessToken!, completion: completion)
+    public func bitriseGetMe(preview: Bool = false, completion: @escaping (Result<BitriseProfile, Error>) -> Void) {
+        #warning("Safely unwrap bitrise access token and return error if nil")
+        bitrise.getMe(preview: preview, accessToken: bitriseAccessToken!, completion: completion)
+    }
+
+    public func bitriseGetApps(preview: Bool = false, completion: @escaping (Result<BitriseApps, Error>) -> Void) {
+        #warning("Safely unwrap bitrise access token and return error if nil")
+        bitrise.getApps(preview: preview, accessToken: bitriseAccessToken!, completion: completion)
     }
 
 }

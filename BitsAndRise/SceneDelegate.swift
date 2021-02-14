@@ -14,8 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let contentView = EntryContentView()
-        let viewController = EntryViewController(rootView: contentView)
+        let viewController = entryScreen()
         let navigationController = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigationController
         self.window = window
@@ -32,6 +31,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         try? PersistenceController.shared.save()
+    }
+
+    private func entryScreen() -> UIViewController {
+        let viewModel = EntryViewModel()
+        let view = EntryContentView(viewModel: viewModel)
+        let viewController = EntryViewController(rootView: view)
+        return viewController
     }
 
 }

@@ -7,26 +7,24 @@
 
 import UIKit
 import SwiftUI
+import BitriseSDK
 
 class EntryViewController: UIHostingController<EntryContentView> {
 
     let networker = NetworkController()
 
-    override init(rootView: EntryContentView) {
-        super.init(rootView: rootView)
-    }
+    private var preview = false
 
-    @objc
-    required dynamic init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    fileprivate convenience init(preview: Bool, rootView: EntryContentView) {
+        self.init(rootView: rootView)
+
+        self.preview = preview
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.view.backgroundColor = .systemBackground
-        self.title = "BitsAndRise"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        setupView()
 
         if networker.bitriseAccessToken == nil {
             if let path = Bundle.main.path(forResource: "Secrets", ofType: "plist"),
@@ -39,15 +37,44 @@ class EntryViewController: UIHostingController<EntryContentView> {
 
         guard networker.bitriseAccessToken != nil else { return }
 
-        networker.bitriseGetMe() { completion in
-            print(completion)
+        networker.bitriseGetMe(preview: preview) { (result: Result<BitriseProfile, Error>) in
+            switch result {
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            case .success(let success):
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.rootView.viewModel.profile = success
+                }
+            }
         }
+
+        networker.bitriseGetApps(preview: preview) { (result: Result<BitriseApps, Error>) in
+            switch result {
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            case .success(let success):
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.rootView.viewModel.apps = success
+                }
+            }
+        }
+    }
+
+    private func setupView() {
+        self.view.backgroundColor = .systemBackground
+        self.title = "BitsAndRise"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
 }
 
-struct EntryContentView: View {
-    var body: some View {
-        Text("Hello world!")
+struct EntryViewController_Preview: PreviewProvider {
+    static var previews: some View {
+        let viewModel = EntryViewModel()
+        let rootView = EntryContentView(viewModel: viewModel)
+        let viewController = EntryViewController(preview: true, rootView: rootView)
+        return UINavigationController(rootViewController: viewController).toSwiftUIView()
     }
 }

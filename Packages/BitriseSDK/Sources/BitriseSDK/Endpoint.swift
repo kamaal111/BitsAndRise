@@ -34,6 +34,10 @@ extension Endpoint {
     static var me: Self {
         Endpoint(path: "me")
     }
+
+    static var apps: Self {
+        Endpoint(path: "apps")
+    }
 }
 
 extension URLRequest {
