@@ -8,7 +8,7 @@
 import Foundation
 
 @propertyWrapper
-public struct DateValueCodable<Formatter: DateValueCodableStrategy>: Codable {
+public struct DateValueCodable<Formatter: DateValueCodableStrategy>: Codable, Hashable {
     private let value: Formatter.RawValue
     public var wrappedValue: Date
     
@@ -30,14 +30,14 @@ public struct DateValueCodable<Formatter: DateValueCodableStrategy>: Codable {
 }
 
 public protocol DateValueCodableStrategy {
-    associatedtype RawValue: Codable
+    associatedtype RawValue: Codable, Hashable
     static func decode(_ value: RawValue) throws -> Date
     static func encode(_ date: Date) -> RawValue
 }
 
 public struct BitriseDateCodableStrategy: DateValueCodableStrategy {
     public typealias RawValue = String
-    
+
     public static func decode(_ value: String) throws -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
@@ -46,7 +46,7 @@ public struct BitriseDateCodableStrategy: DateValueCodableStrategy {
         }
         return date
     }
-    
+
     public static func encode(_ date: Date) -> String {
         ISO8601DateFormatter().string(from: date)
     }

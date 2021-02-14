@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct BitriseProfile: BitriseMockable {
+public struct BitriseProfile: BitriseMockable, Hashable {
     public let username: String
     public let slug: String
     public let email: String

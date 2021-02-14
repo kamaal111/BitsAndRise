@@ -40,6 +40,7 @@ class EntryViewController: UIHostingController<EntryContentView> {
         networker.bitriseGetMe(preview: preview) { (result: Result<BitriseProfile, Error>) in
             switch result {
             case .failure(let failure):
+                print(failure)
                 print(failure.localizedDescription)
             case .success(let success):
                 DispatchQueue.main.async { [weak self] in
@@ -52,6 +53,7 @@ class EntryViewController: UIHostingController<EntryContentView> {
         networker.bitriseGetApps(preview: preview) { (result: Result<BitriseApps, Error>) in
             switch result {
             case .failure(let failure):
+                print(failure)
                 print(failure.localizedDescription)
             case .success(let success):
                 DispatchQueue.main.async { [weak self] in

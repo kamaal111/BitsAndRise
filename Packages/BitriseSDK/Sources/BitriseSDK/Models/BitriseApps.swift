@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct BitriseApps: BitriseMockable {
+public struct BitriseApps: BitriseMockable, Hashable {
     public let data: [BitriseApps.App]
     public let paging: BitriseApps.Paging
 
@@ -16,7 +16,7 @@ public struct BitriseApps: BitriseMockable {
         self.paging = paging
     }
 
-    public struct App: Codable {
+    public struct App: Codable, Hashable {
         public let avatarURL: String?
         public let isDisabled: Bool
         public let isPublic: Bool
@@ -45,7 +45,7 @@ public struct BitriseApps: BitriseMockable {
             case title
         }
 
-        public struct Owner: Codable {
+        public struct Owner: Codable, Hashable {
             public let accountType: String
             public let name: String
             public let slug: String
@@ -58,7 +58,7 @@ public struct BitriseApps: BitriseMockable {
         }
     }
 
-    public struct Paging: Codable {
+    public struct Paging: Codable, Hashable {
         public let next: String?
         public let pageItemLimit: Int
         public let totalItemCount: Int
@@ -78,14 +78,26 @@ public extension BitriseApps {
                 isDisabled: false,
                 isPublic: false,
                 owner: App.Owner(accountType: "account type", name: "Me is the name", slug: "123brt"),
-                projectType: "Strong",
+                projectType: "ios",
                 provider: "Bitrise",
                 repoOwner: "I am",
                 repoSlug: "ewr123",
                 repoURL: "https://app.bitrise.io",
                 slug: "slg123",
                 status: 1,
-                title: "The app")
+                title: "The app"),
+            App(avatarURL: "",
+                isDisabled: false,
+                isPublic: false,
+                owner: App.Owner(accountType: "account type", name: "Me is the name", slug: "123brt"),
+                projectType: "android",
+                provider: "Bitrise",
+                repoOwner: "I am",
+                repoSlug: "ewr123",
+                repoURL: "https://app.bitrise.io",
+                slug: "slg123",
+                status: 1,
+                title: "The big app")
         ]
         return BitriseApps(data: apps, paging: Paging(next: "yes", pageItemLimit: 20, totalItemCount: 20))
     }

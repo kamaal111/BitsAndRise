@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C01A49C25D9CF3100A74AB1 /* SalmonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2C01A49B25D9CF3100A74AB1 /* SalmonUI */; };
+		2C01A4A225D9CF4F00A74AB1 /* ShrimpExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 2C01A4A125D9CF4F00A74AB1 /* ShrimpExtensions */; };
 		2C155C9625D92C7500AAB735 /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C155C9525D92C7500AAB735 /* UIViewController+extensions.swift */; };
 		2CA1CEDE25D7FE5B0052E0F2 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA1CEDD25D7FE5B0052E0F2 /* Secrets.plist */; };
 		2CA1CEE325D8012C0052E0F2 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1CEE225D8012C0052E0F2 /* NetworkController.swift */; };
@@ -71,8 +73,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C01A49C25D9CF3100A74AB1 /* SalmonUI in Frameworks */,
 				2CD5236125D7EAAD00C2C4F5 /* PersistanceManager in Frameworks */,
 				2CC601DC25D7FD0B00A2C642 /* BitriseSDK in Frameworks */,
+				2C01A4A225D9CF4F00A74AB1 /* ShrimpExtensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +207,8 @@
 			packageProductDependencies = (
 				2CD5236025D7EAAD00C2C4F5 /* PersistanceManager */,
 				2CC601DB25D7FD0B00A2C642 /* BitriseSDK */,
+				2C01A49B25D9CF3100A74AB1 /* SalmonUI */,
+				2C01A4A125D9CF4F00A74AB1 /* ShrimpExtensions */,
 			);
 			productName = BitsAndRise;
 			productReference = 2CD5231B25D7EA3500C2C4F5 /* BitsAndRise.app */;
@@ -277,6 +283,8 @@
 			mainGroup = 2CD5231225D7EA3500C2C4F5;
 			packageReferences = (
 				2CD5235F25D7EAAD00C2C4F5 /* XCRemoteSwiftPackageReference "PersistanceManager" */,
+				2C01A49A25D9CF3100A74AB1 /* XCRemoteSwiftPackageReference "SalmonUI" */,
+				2C01A4A025D9CF4F00A74AB1 /* XCRemoteSwiftPackageReference "ShrimpExtensions" */,
 			);
 			productRefGroup = 2CD5231C25D7EA3500C2C4F5 /* Products */;
 			projectDirPath = "";
@@ -656,6 +664,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2C01A49A25D9CF3100A74AB1 /* XCRemoteSwiftPackageReference "SalmonUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kamaal111/SalmonUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
+		2C01A4A025D9CF4F00A74AB1 /* XCRemoteSwiftPackageReference "ShrimpExtensions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kamaal111/ShrimpExtensions.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.0;
+			};
+		};
 		2CD5235F25D7EAAD00C2C4F5 /* XCRemoteSwiftPackageReference "PersistanceManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kamaal111/PersistanceManager.git";
@@ -667,6 +691,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2C01A49B25D9CF3100A74AB1 /* SalmonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C01A49A25D9CF3100A74AB1 /* XCRemoteSwiftPackageReference "SalmonUI" */;
+			productName = SalmonUI;
+		};
+		2C01A4A125D9CF4F00A74AB1 /* ShrimpExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C01A4A025D9CF4F00A74AB1 /* XCRemoteSwiftPackageReference "ShrimpExtensions" */;
+			productName = ShrimpExtensions;
+		};
 		2CC601DB25D7FD0B00A2C642 /* BitriseSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BitriseSDK;
