@@ -16,9 +16,7 @@ struct AppsSection: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Apps")
-                .font(.headline)
-            Text("Showing \(apps.count)/\(apps.count) apps")
+            Text("Showing \(apps.count)/\(totalAppsCount) apps")
                 .foregroundColor(.secondary)
                 .padding(.top, 8)
             VStack(alignment: .leading) {
@@ -47,11 +45,12 @@ struct AppsSection: View {
                         }
                     }
                 }
+                .transition(.move(edge: .trailing))
+                .animation(.default)
                 Divider()
             }
             .padding(.vertical, 8)
         }
-        .transition(.move(edge: .trailing))
     }
 
     private func appAvatar(avatarURL: String?) -> some View {

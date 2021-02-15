@@ -9,14 +9,18 @@ import SwiftUI
 import BitriseSDK
 
 struct HomeView: View {
+    @Binding var appsSearchText: String
+
     let apps: [BitriseApps.App]
     let totalAppsCount: Int
 
     var body: some View {
         VStack(alignment: .leading) {
-            if !apps.isEmpty {
-                AppsSection(apps: apps, totalAppsCount: totalAppsCount)
-            }
+            Text("Apps")
+                .font(.headline)
+            SearchBar(searchText: $appsSearchText, placeHolder: "")
+                .padding(.top, 8)
+            AppsSection(apps: apps, totalAppsCount: totalAppsCount)
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 16)
@@ -27,6 +31,8 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         let previewApps = BitriseApps.preview
-        return HomeView(apps: previewApps.data, totalAppsCount: previewApps.paging.totalItemCount)
+        return HomeView(appsSearchText: .constant(""),
+                        apps: previewApps.data,
+                        totalAppsCount: previewApps.paging.totalItemCount)
     }
 }

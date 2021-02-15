@@ -15,7 +15,9 @@ struct EntryContentView: View {
     var viewModel: EntryViewModel
 
     var body: some View {
-        HomeView(apps: viewModel.filteredApps, totalAppsCount: viewModel.apps?.paging.totalItemCount ?? 0)
+        HomeView(appsSearchText: $viewModel.appsSearchText,
+                 apps: viewModel.filteredApps,
+                 totalAppsCount: viewModel.apps?.paging.totalItemCount ?? 0)
     }
 }
 
