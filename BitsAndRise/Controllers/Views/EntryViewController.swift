@@ -68,7 +68,7 @@ class EntryViewController: UIHostingController<EntryContentView> {
 
     private func setupView() {
         self.view.backgroundColor = .systemBackground
-        self.title = "BitsAndRise"
+        self.navigationController?.navigationBar.topItem?.title = "BitsAndRise"
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 

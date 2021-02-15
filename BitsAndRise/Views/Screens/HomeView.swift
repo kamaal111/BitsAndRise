@@ -15,16 +15,17 @@ struct HomeView: View {
     let totalAppsCount: Int
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Apps")
-                .font(.headline)
-            SearchBar(searchText: $appsSearchText, placeHolder: "")
-                .padding(.top, 8)
-            AppsSection(apps: apps, totalAppsCount: totalAppsCount)
+        ScrollView(showsIndicators: true) {
+            VStack(alignment: .leading) {
+                Text("Apps")
+                    .font(.headline)
+                SearchBar(searchText: $appsSearchText, placeHolder: "")
+                    .padding(.top, 8)
+                AppsSection(apps: apps, totalAppsCount: totalAppsCount)
+            }
+            .padding(.horizontal, 20)
+            .padding(.vertical, 16)
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 16)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
 }
 
