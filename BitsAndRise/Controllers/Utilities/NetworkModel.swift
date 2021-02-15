@@ -1,15 +1,16 @@
 //
-//  NetworkController.swift
+//  NetworkModel.swift
 //  BitsAndRise
 //
 //  Created by Kamaal M Farah on 13/02/2021.
 //
 
 import BitriseSDK
+import Combine
 
-public class NetworkController {
+final public class NetworkModel: ObservableObject {
 
-    private(set) var bitriseAccessToken: String?
+    @Published private(set) var bitriseAccessToken: String?
 
     private let bitrise = BitriseSDK(kowalskiAnalysis: false)
 
@@ -32,7 +33,7 @@ public class NetworkController {
 
     public func bitriseGetMe(preview: Bool = false, completion: @escaping (Result<BitriseProfile, Error>) -> Void) {
         guard let bitriseAccessToken = bitriseAccessToken else {
-            completion(.failure(NetworkController.Errors.notAuthorized))
+            completion(.failure(NetworkModel.Errors.notAuthorized))
             return
         }
         bitrise.getMe(preview: preview, accessToken: bitriseAccessToken, completion: completion)
@@ -40,7 +41,7 @@ public class NetworkController {
 
     public func bitriseGetApps(preview: Bool = false, completion: @escaping (Result<BitriseApps, Error>) -> Void) {
         guard let bitriseAccessToken = bitriseAccessToken else {
-            completion(.failure(NetworkController.Errors.notAuthorized))
+            completion(.failure(NetworkModel.Errors.notAuthorized))
             return
         }
         bitrise.getApps(preview: preview, accessToken: bitriseAccessToken, completion: completion)

@@ -9,19 +9,16 @@
 /* Begin PBXBuildFile section */
 		2C01A49C25D9CF3100A74AB1 /* SalmonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2C01A49B25D9CF3100A74AB1 /* SalmonUI */; };
 		2C01A4A225D9CF4F00A74AB1 /* ShrimpExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 2C01A4A125D9CF4F00A74AB1 /* ShrimpExtensions */; };
-		2C11CA4325DB06840010CCBC /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C11CA4225DB06840010CCBC /* TabController.swift */; };
 		2C155C9625D92C7500AAB735 /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C155C9525D92C7500AAB735 /* UIViewController+extensions.swift */; };
-		2C4A38AF25DA562000AE9432 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4A38AE25DA562000AE9432 /* HomeView.swift */; };
+		2C4A38AF25DA562000AE9432 /* AppsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4A38AE25DA562000AE9432 /* AppsScreenView.swift */; };
 		2C4A38B625DA579200AE9432 /* AppsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4A38B525DA579200AE9432 /* AppsSection.swift */; };
 		2C4A38C225DA5D0900AE9432 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4A38C125DA5D0900AE9432 /* SearchBar.swift */; };
 		2CA1CEDE25D7FE5B0052E0F2 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA1CEDD25D7FE5B0052E0F2 /* Secrets.plist */; };
-		2CA1CEE325D8012C0052E0F2 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1CEE225D8012C0052E0F2 /* NetworkController.swift */; };
+		2CA1CEE325D8012C0052E0F2 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1CEE225D8012C0052E0F2 /* NetworkModel.swift */; };
 		2CA1CEE825D87CF50052E0F2 /* EntryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1CEE725D87CF50052E0F2 /* EntryContentView.swift */; };
-		2CA1CEED25D87D200052E0F2 /* EntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1CEEC25D87D200052E0F2 /* EntryViewModel.swift */; };
 		2CC601DC25D7FD0B00A2C642 /* BitriseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 2CC601DB25D7FD0B00A2C642 /* BitriseSDK */; };
 		2CD5231F25D7EA3500C2C4F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5231E25D7EA3500C2C4F5 /* AppDelegate.swift */; };
 		2CD5232125D7EA3500C2C4F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5232025D7EA3500C2C4F5 /* SceneDelegate.swift */; };
-		2CD5232325D7EA3500C2C4F5 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5232225D7EA3500C2C4F5 /* EntryViewController.swift */; };
 		2CD5232925D7EA3500C2C4F5 /* BitsAndRise.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5232725D7EA3500C2C4F5 /* BitsAndRise.xcdatamodeld */; };
 		2CD5232B25D7EA3700C2C4F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CD5232A25D7EA3700C2C4F5 /* Assets.xcassets */; };
 		2CD5232E25D7EA3700C2C4F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD5232C25D7EA3700C2C4F5 /* LaunchScreen.storyboard */; };
@@ -49,19 +46,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2C11CA4225DB06840010CCBC /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		2C155C9525D92C7500AAB735 /* UIViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extensions.swift"; sourceTree = "<group>"; };
-		2C4A38AE25DA562000AE9432 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2C4A38AE25DA562000AE9432 /* AppsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsScreenView.swift; sourceTree = "<group>"; };
 		2C4A38B525DA579200AE9432 /* AppsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSection.swift; sourceTree = "<group>"; };
 		2C4A38C125DA5D0900AE9432 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		2CA1CEDD25D7FE5B0052E0F2 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
-		2CA1CEE225D8012C0052E0F2 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		2CA1CEE225D8012C0052E0F2 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 		2CA1CEE725D87CF50052E0F2 /* EntryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryContentView.swift; sourceTree = "<group>"; };
-		2CA1CEEC25D87D200052E0F2 /* EntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewModel.swift; sourceTree = "<group>"; };
 		2CD5231B25D7EA3500C2C4F5 /* BitsAndRise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitsAndRise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD5231E25D7EA3500C2C4F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CD5232025D7EA3500C2C4F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2CD5232225D7EA3500C2C4F5 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		2CD5232825D7EA3500C2C4F5 /* BitsAndRise.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BitsAndRise.xcdatamodel; sourceTree = "<group>"; };
 		2CD5232A25D7EA3700C2C4F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CD5232D25D7EA3700C2C4F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -108,8 +102,6 @@
 		2C11CA4125DB06570010CCBC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2CD5232225D7EA3500C2C4F5 /* EntryViewController.swift */,
-				2C11CA4225DB06840010CCBC /* TabController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,7 +127,7 @@
 		2C4A38B325DA577B00AE9432 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				2C4A38AE25DA562000AE9432 /* HomeView.swift */,
+				2C4A38AE25DA562000AE9432 /* AppsScreenView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -162,7 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				2CD5235A25D7EA8A00C2C4F5 /* PersistenceController.swift */,
-				2CA1CEE225D8012C0052E0F2 /* NetworkController.swift */,
+				2CA1CEE225D8012C0052E0F2 /* NetworkModel.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -178,7 +170,6 @@
 		2C4A38C025DA5C4F00AE9432 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				2CA1CEEC25D87D200052E0F2 /* EntryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -405,15 +396,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C11CA4325DB06840010CCBC /* TabController.swift in Sources */,
 				2CD5232925D7EA3500C2C4F5 /* BitsAndRise.xcdatamodeld in Sources */,
-				2CD5232325D7EA3500C2C4F5 /* EntryViewController.swift in Sources */,
-				2CA1CEE325D8012C0052E0F2 /* NetworkController.swift in Sources */,
-				2C4A38AF25DA562000AE9432 /* HomeView.swift in Sources */,
+				2CA1CEE325D8012C0052E0F2 /* NetworkModel.swift in Sources */,
+				2C4A38AF25DA562000AE9432 /* AppsScreenView.swift in Sources */,
 				2CD5231F25D7EA3500C2C4F5 /* AppDelegate.swift in Sources */,
 				2C4A38C225DA5D0900AE9432 /* SearchBar.swift in Sources */,
 				2CD5232125D7EA3500C2C4F5 /* SceneDelegate.swift in Sources */,
-				2CA1CEED25D87D200052E0F2 /* EntryViewModel.swift in Sources */,
 				2CA1CEE825D87CF50052E0F2 /* EntryContentView.swift in Sources */,
 				2C4A38B625DA579200AE9432 /* AppsSection.swift in Sources */,
 				2C155C9625D92C7500AAB735 /* UIViewController+extensions.swift in Sources */,

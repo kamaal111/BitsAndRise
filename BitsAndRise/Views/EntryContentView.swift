@@ -11,26 +11,24 @@ import SalmonUI
 import ShrimpExtensions
 
 struct EntryContentView: View {
-    @ObservedObject
-    var viewModel: EntryViewModel
+    @State private var tabSelection = 0
 
     var body: some View {
-        HomeView(appsSearchText: $viewModel.appsSearchText,
-                 apps: viewModel.filteredApps,
-                 totalAppsCount: viewModel.apps?.paging.totalItemCount ?? 0)
+        TabView(selection: $tabSelection) {
+            NavigationView { AppsScreenView() }
+                .tabItem({
+                    Text("Apps")
+                    Image(systemName: "rectangle.grid.2x2")
+                })
+                .tag(0)
+        }
     }
 }
 
 #if DEBUG
 struct EntryContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = EntryViewModel()
-        viewModel.apps = BitriseApps.preview
-        viewModel.profile = BitriseProfile.preview
-        return NavigationView {
-            EntryContentView(viewModel: viewModel)
-                .navigationBarTitle(Text("BitsAndRise"))
-        }
+        EntryContentView()
     }
 }
 #endif

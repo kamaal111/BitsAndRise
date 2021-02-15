@@ -9,11 +9,12 @@ import PersistanceManager
 import CoreData
 
 class PersistenceController {
+
     private let sharedInststance: PersistanceManager
 
     private init(inMemory: Bool = false) {
         let persistanceContainer: NSPersistentContainer = {
-            let container = NSPersistentContainer(name: "GhibliBibli")
+            let container = NSPersistentContainer(name: "BitsAndRise")
             if inMemory {
                 container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
             } else {
@@ -34,4 +35,5 @@ class PersistenceController {
     }
 
     static let shared = PersistenceController().sharedInststance
+
 }
