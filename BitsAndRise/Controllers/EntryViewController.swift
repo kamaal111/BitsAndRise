@@ -56,9 +56,11 @@ class EntryViewController: UIHostingController<EntryContentView> {
                 print(failure)
                 print(failure.localizedDescription)
             case .success(let success):
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    self.rootView.viewModel.apps = success
+                DispatchQueue.main.async {
+                    withAnimation { [weak self] in
+                        guard let self = self else { return }
+                        self.rootView.viewModel.apps = success
+                    }
                 }
             }
         }

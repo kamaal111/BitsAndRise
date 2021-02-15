@@ -13,7 +13,6 @@ final class EntryViewModel: ObservableObject {
     @Published var apps: BitriseApps?
 
     var filteredApps: [BitriseApps.App] {
-        print(apps?.data ?? [])
-        return apps?.data ?? []
+        apps?.data ?? []
     }
 }
