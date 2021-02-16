@@ -23,8 +23,6 @@ struct AppsScreen: View {
     var body: some View {
         ScrollView(showsIndicators: true) {
             VStack(alignment: .leading) {
-                Text("Apps")
-                    .font(.headline)
                 SearchBar(searchText: $viewModel.appsSearchText, placeHolder: "Search")
                     .padding(.top, 8)
                 AppsSection(apps: viewModel.filteredApps,
@@ -34,6 +32,9 @@ struct AppsScreen: View {
             .padding(.vertical, 16)
         }
         .navigationBarTitle(Text("Apps"))
+        .onAppear(perform: {
+            viewModel.getApps()
+        })
     }
 }
 
@@ -49,14 +50,10 @@ extension AppsScreen {
 
         fileprivate init(preview: Bool) {
             self.preview = preview
-
-            getApps()
         }
 
         init() {
             self.preview = false
-
-            getApps()
         }
 
         var filteredApps: [AppResponseItemModel] {
@@ -78,7 +75,9 @@ extension AppsScreen {
             return accessToken
         }
 
-        private func getApps() {
+        func getApps() {
+            guard bitriseApps == nil else { return }
+
             if networker.bitriseAccessToken == nil, let accessToken = testAccessToken {
                 networker.setBitriseAccessToken(to: accessToken)
             }

@@ -101,13 +101,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C11CA4125DB06570010CCBC /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		2C155C9425D92C5100AAB735 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,7 +140,6 @@
 		2C4A38BD25DA5C0900AE9432 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2C11CA4125DB06570010CCBC /* Views */,
 				2C4A38BE25DA5C2F00AE9432 /* Utilities */,
 			);
 			path = Controllers;
@@ -165,16 +157,8 @@
 		2C4A38BF25DA5C4600AE9432 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2C4A38C025DA5C4F00AE9432 /* ViewModels */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		2C4A38C025DA5C4F00AE9432 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		2CC601DA25D7FD0B00A2C642 /* Frameworks */ = {

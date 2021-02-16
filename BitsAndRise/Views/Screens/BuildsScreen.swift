@@ -23,15 +23,16 @@ struct BuildsScreen: View {
     var body: some View {
         ScrollView(showsIndicators: true) {
             VStack(alignment: .leading) {
-                Text("Builds")
-                    .font(.headline)
                 SearchBar(searchText: $viewModel.buildsSearchText, placeHolder: "Search")
                     .padding(.top, 8)
+                ForEach(viewModel.filteredBuilds, id: \.self) { (build: BuildListAllResponseModel.BuildListAllResponseItemModel) in
+                    Text(build.repository.title)
+                }
             }
             .padding(.horizontal, 20)
             .padding(.vertical, 16)
         }
-        .navigationBarTitle(Text("BitsAndRise"))
+        .navigationBarTitle(Text("Builds"))
     }
 }
 
@@ -39,11 +40,7 @@ extension BuildsScreen {
     final class ViewModel: ObservableObject {
 
         @Published var buildsSearchText = ""
-        @Published var bitriseBuilds: BuildListAllResponseModel? {
-            didSet {
-                print(bitriseBuilds)
-            }
-        }
+        @Published var bitriseBuilds: BuildListAllResponseModel?
 
         private let preview: Bool
 
@@ -61,6 +58,10 @@ extension BuildsScreen {
             getBuilds()
         }
 
+        var filteredBuilds: [BuildListAllResponseModel.BuildListAllResponseItemModel] {
+            return bitriseBuilds?.data ?? []
+        }
+
         var testAccessToken: String? {
             guard let path = Bundle.main.path(forResource: "Secrets", ofType: "plist"),
                   let dict = NSDictionary(contentsOfFile: path),
@@ -68,7 +69,7 @@ extension BuildsScreen {
             return accessToken
         }
 
-        private func getBuilds() {
+        func getBuilds() {
             if networker.bitriseAccessToken == nil, let accessToken = testAccessToken {
                 networker.setBitriseAccessToken(to: accessToken)
             }
@@ -78,7 +79,8 @@ extension BuildsScreen {
                     print(failure.localizedDescription)
                     print(failure)
                 case .success(let success):
-                    DispatchQueue.main.async {
+                    print(success)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         withAnimation { [weak self] in
                             self?.bitriseBuilds = success
                         }
