@@ -38,33 +38,6 @@ public struct BitriseSDK {
     }
 }
 
-public struct BuildListAllResponseModel: BitriseMockable, Hashable {
-    public let data: [BuildListAllResponseModel.BuildListAllResponseItemModel]
-
-    public struct BuildListAllResponseItemModel: Codable, Hashable {
-        public let abortReason: String?
-        public let branch: String
-        public let buildNumber: Int
-        public let commitHash: String
-
-        public enum CodingKeys: String, CodingKey {
-            case abortReason = "abort_reason"
-            case branch
-            case buildNumber = "build_number"
-            case commitHash = "commit_hash"
-        }
-    }
-}
-
-public extension BuildListAllResponseModel {
-    static var preview: BuildListAllResponseModel {
-        let builds: [BuildListAllResponseModel.BuildListAllResponseItemModel] = [
-//            Build(abortReason: "no reason")
-        ]
-        return BuildListAllResponseModel(data: builds)
-    }
-}
-
 public protocol BitriseMockable: Codable {
     static var preview: Self { get }
 }

@@ -11,7 +11,7 @@ import SalmonUI
 import ShrimpExtensions
 
 struct AppsSection: View {
-    let apps: [AppListResponseModel.AppResponseItemModel]
+    let apps: [AppResponseItemModel]
     let totalAppsCount: Int
 
     var body: some View {
@@ -20,7 +20,7 @@ struct AppsSection: View {
                 .foregroundColor(.secondary)
                 .padding(.top, 8)
             VStack(alignment: .leading) {
-                ForEach(apps, id: \.self) { (app: AppListResponseModel.AppResponseItemModel) in
+                ForEach(apps, id: \.self) { (app: AppResponseItemModel) in
                     VStack {
                         Divider()
                         HStack {

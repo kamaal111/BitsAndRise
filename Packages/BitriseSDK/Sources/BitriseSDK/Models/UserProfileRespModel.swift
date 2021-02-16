@@ -10,15 +10,11 @@ import Foundation
 public struct UserProfileRespModel: BitriseMockable, Hashable {
     public let data: UserProfileDataModel
 
-    public enum CodingKeys: String, CodingKey {
-        case data
-    }
-
     public struct UserProfileDataModel: Codable, Hashable {
         public let username: String
         public let slug: String
         public let email: String
-        public let avatarURL: String?
+        public let avatarURL: String? // Maybe URL 🤷‍♂️
         public let hasUsedOrganizationTrial: Bool
         public let dataID: Int
         public let paymentProcessor: String?

@@ -59,7 +59,7 @@ extension AppsScreen {
             getApps()
         }
 
-        var filteredApps: [AppListResponseModel.AppResponseItemModel] {
+        var filteredApps: [AppResponseItemModel] {
             guard let appsData = bitriseApps?.data else { return [] }
             let trimmedSearch = appsSearchText.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
             guard !trimmedSearch.isEmpty else { return appsData }
