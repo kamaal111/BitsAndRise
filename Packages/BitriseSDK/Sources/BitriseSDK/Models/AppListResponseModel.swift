@@ -7,20 +7,20 @@
 
 import Foundation
 
-public struct BitriseApps: BitriseMockable, Hashable {
-    public let data: [BitriseApps.App]
-    public let paging: BitriseApps.Paging
+public struct AppListResponseModel: BitriseMockable, Hashable {
+    public let data: [AppListResponseModel.AppResponseItemModel]
+    public let paging: AppListResponseModel.PagingResponseModel
 
-    public init(data: [BitriseApps.App], paging: BitriseApps.Paging) {
+    public init(data: [AppListResponseModel.AppResponseItemModel], paging: AppListResponseModel.PagingResponseModel) {
         self.data = data
         self.paging = paging
     }
 
-    public struct App: Codable, Hashable {
+    public struct AppResponseItemModel: Codable, Hashable {
         public let avatarURL: String?
         public let isDisabled: Bool
         public let isPublic: Bool
-        public let owner: BitriseApps.App.Owner
+        public let owner: AppListResponseModel.AppResponseItemModel.OwnerAccountResponseModel
         public let projectType: String?
         public let provider: String?
         public let repoOwner: String
@@ -45,7 +45,7 @@ public struct BitriseApps: BitriseMockable, Hashable {
             case title
         }
 
-        public struct Owner: Codable, Hashable {
+        public struct OwnerAccountResponseModel: Codable, Hashable {
             public let accountType: String
             public let name: String
             public let slug: String
@@ -58,7 +58,7 @@ public struct BitriseApps: BitriseMockable, Hashable {
         }
     }
 
-    public struct Paging: Codable, Hashable {
+    public struct PagingResponseModel: Codable, Hashable {
         public let next: String?
         public let pageItemLimit: Int
         public let totalItemCount: Int
@@ -71,13 +71,13 @@ public struct BitriseApps: BitriseMockable, Hashable {
     }
 }
 
-public extension BitriseApps {
-    static var preview: BitriseApps {
+public extension AppListResponseModel {
+    static var preview: AppListResponseModel {
         let apps = [
-            App(avatarURL: "",
+            AppResponseItemModel(avatarURL: "",
                 isDisabled: false,
                 isPublic: false,
-                owner: App.Owner(accountType: "account type", name: "Me is the name", slug: "123brt"),
+                owner: AppResponseItemModel.OwnerAccountResponseModel(accountType: "account type", name: "Me is the name", slug: "123brt"),
                 projectType: "ios",
                 provider: "Bitrise",
                 repoOwner: "I am",
@@ -86,10 +86,10 @@ public extension BitriseApps {
                 slug: "slg123",
                 status: 1,
                 title: "The app"),
-            App(avatarURL: "",
+            AppResponseItemModel(avatarURL: "",
                 isDisabled: false,
                 isPublic: false,
-                owner: App.Owner(accountType: "account type", name: "Me is the name", slug: "123brt"),
+                owner: AppResponseItemModel.OwnerAccountResponseModel(accountType: "account type", name: "Me is the name", slug: "123brt"),
                 projectType: "android",
                 provider: "Bitrise",
                 repoOwner: "I am",
@@ -99,6 +99,6 @@ public extension BitriseApps {
                 status: 1,
                 title: "The big app")
         ]
-        return BitriseApps(data: apps, paging: Paging(next: "yes", pageItemLimit: 20, totalItemCount: 20))
+        return AppListResponseModel(data: apps, paging: PagingResponseModel(next: "yes", pageItemLimit: 20, totalItemCount: 20))
     }
 }

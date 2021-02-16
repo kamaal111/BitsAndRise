@@ -15,15 +15,15 @@ public struct BitriseSDK {
         self.networker = XiphiasNet(kowalskiAnalysis: kowalskiAnalysis)
     }
 
-    public func getMe(preview: Bool = false, accessToken: String, completion: @escaping (Result<BitriseProfile, Error>) -> Void) {
+    public func getMe(preview: Bool = false, accessToken: String, completion: @escaping (Result<UserProfileRespModel, Error>) -> Void) {
         get(preview: preview, endpoint: .me, accessToken: accessToken, completion: completion)
     }
 
-    public func getApps(preview: Bool = false, accessToken: String, completion: @escaping (Result<BitriseApps, Error>) -> Void) {
+    public func getApps(preview: Bool = false, accessToken: String, completion: @escaping (Result<AppListResponseModel, Error>) -> Void) {
         get(preview: preview, endpoint: .apps, accessToken: accessToken, completion: completion)
     }
 
-    public func getBuilds(preview: Bool = false, accessToken: String, completion: @escaping (Result<BitriseBuild, Error>) -> Void) {
+    public func getBuilds(preview: Bool = false, accessToken: String, completion: @escaping (Result<BuildListAllResponseModel, Error>) -> Void) {
         get(preview: preview, endpoint: .builds, accessToken: accessToken, completion: completion)
     }
 
@@ -38,24 +38,30 @@ public struct BitriseSDK {
     }
 }
 
-public struct BitriseBuild: BitriseMockable, Hashable {
-    public let data: [BitriseBuild.Build]
+public struct BuildListAllResponseModel: BitriseMockable, Hashable {
+    public let data: [BuildListAllResponseModel.BuildListAllResponseItemModel]
 
-    public struct Build: Codable, Hashable {
+    public struct BuildListAllResponseItemModel: Codable, Hashable {
         public let abortReason: String?
+        public let branch: String
+        public let buildNumber: Int
+        public let commitHash: String
 
         public enum CodingKeys: String, CodingKey {
             case abortReason = "abort_reason"
+            case branch
+            case buildNumber = "build_number"
+            case commitHash = "commit_hash"
         }
     }
 }
 
-public extension BitriseBuild {
-    static var preview: BitriseBuild {
-        let builds = [
-            Build(abortReason: "no reason")
+public extension BuildListAllResponseModel {
+    static var preview: BuildListAllResponseModel {
+        let builds: [BuildListAllResponseModel.BuildListAllResponseItemModel] = [
+//            Build(abortReason: "no reason")
         ]
-        return BitriseBuild(data: builds)
+        return BuildListAllResponseModel(data: builds)
     }
 }
 

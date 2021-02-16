@@ -11,7 +11,7 @@ import SalmonUI
 import ShrimpExtensions
 
 struct AppsSection: View {
-    let apps: [BitriseApps.App]
+    let apps: [AppListResponseModel.AppResponseItemModel]
     let totalAppsCount: Int
 
     var body: some View {
@@ -20,7 +20,7 @@ struct AppsSection: View {
                 .foregroundColor(.secondary)
                 .padding(.top, 8)
             VStack(alignment: .leading) {
-                ForEach(apps, id: \.self) { (app: BitriseApps.App) in
+                ForEach(apps, id: \.self) { (app: AppListResponseModel.AppResponseItemModel) in
                     VStack {
                         Divider()
                         HStack {
@@ -86,7 +86,7 @@ struct AppsSection: View {
 
 struct AppsSection_Previews: PreviewProvider {
     static var previews: some View {
-        let previewApps = BitriseApps.preview
+        let previewApps = AppListResponseModel.preview
         return AppsSection(apps: previewApps.data, totalAppsCount: previewApps.paging.totalItemCount)
     }
 }

@@ -40,7 +40,7 @@ struct AppsScreen: View {
 extension AppsScreen {
     class ViewModel: ObservableObject {
 
-        @Published var bitriseApps: BitriseApps?
+        @Published var bitriseApps: AppListResponseModel?
         @Published var appsSearchText = ""
 
         let preview: Bool
@@ -59,7 +59,7 @@ extension AppsScreen {
             getApps()
         }
 
-        var filteredApps: [BitriseApps.App] {
+        var filteredApps: [AppListResponseModel.AppResponseItemModel] {
             guard let appsData = bitriseApps?.data else { return [] }
             let trimmedSearch = appsSearchText.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
             guard !trimmedSearch.isEmpty else { return appsData }
@@ -82,7 +82,7 @@ extension AppsScreen {
             if networker.bitriseAccessToken == nil, let accessToken = testAccessToken {
                 networker.setBitriseAccessToken(to: accessToken)
             }
-            networker.bitriseGetApps(preview: preview) { (result: Result<BitriseApps, Error>) in
+            networker.bitriseGetApps(preview: preview) { (result: Result<AppListResponseModel, Error>) in
                 switch result {
                 case .failure(let failure):
                     print(failure)

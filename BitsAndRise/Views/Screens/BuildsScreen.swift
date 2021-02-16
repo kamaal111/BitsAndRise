@@ -39,7 +39,7 @@ extension BuildsScreen {
     final class ViewModel: ObservableObject {
 
         @Published var buildsSearchText = ""
-        @Published var bitriseBuilds: BitriseBuild? {
+        @Published var bitriseBuilds: BuildListAllResponseModel? {
             didSet {
                 print(bitriseBuilds)
             }
@@ -72,7 +72,7 @@ extension BuildsScreen {
             if networker.bitriseAccessToken == nil, let accessToken = testAccessToken {
                 networker.setBitriseAccessToken(to: accessToken)
             }
-            networker.bitriseGetBuilds(preview: preview) { (result: Result<BitriseBuild, Error>) in
+            networker.bitriseGetBuilds(preview: preview) { (result: Result<BuildListAllResponseModel, Error>) in
                 switch result {
                 case .failure(let failure):
                     print(failure.localizedDescription)
