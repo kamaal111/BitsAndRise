@@ -31,13 +31,9 @@ extension Endpoint {
 }
 
 extension Endpoint {
-    static var me: Self {
-        Endpoint(path: "me")
-    }
-
-    static var apps: Self {
-        Endpoint(path: "apps")
-    }
+    static var me: Endpoint { Endpoint(path: "me") }
+    static var apps: Endpoint { Endpoint(path: "apps") }
+    static var builds: Endpoint { Endpoint(path: "builds") }
 }
 
 extension URLRequest {

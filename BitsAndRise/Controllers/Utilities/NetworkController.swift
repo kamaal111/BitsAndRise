@@ -1,5 +1,5 @@
 //
-//  NetworkModel.swift
+//  NetworkController.swift
 //  BitsAndRise
 //
 //  Created by Kamaal M Farah on 13/02/2021.
@@ -8,13 +8,15 @@
 import BitriseSDK
 import Combine
 
-final public class NetworkModel: ObservableObject {
+final public class NetworkController {
 
-    @Published private(set) var bitriseAccessToken: String?
+    private(set) var bitriseAccessToken: String?
 
     private let bitrise = BitriseSDK(kowalskiAnalysis: false)
 
-    public init() { }
+    private init() { }
+
+    public static let shared = NetworkController()
 
     public enum Errors: Error {
         case notAuthorized
@@ -33,7 +35,7 @@ final public class NetworkModel: ObservableObject {
 
     public func bitriseGetMe(preview: Bool = false, completion: @escaping (Result<BitriseProfile, Error>) -> Void) {
         guard let bitriseAccessToken = bitriseAccessToken else {
-            completion(.failure(NetworkModel.Errors.notAuthorized))
+            completion(.failure(NetworkController.Errors.notAuthorized))
             return
         }
         bitrise.getMe(preview: preview, accessToken: bitriseAccessToken, completion: completion)
@@ -41,10 +43,18 @@ final public class NetworkModel: ObservableObject {
 
     public func bitriseGetApps(preview: Bool = false, completion: @escaping (Result<BitriseApps, Error>) -> Void) {
         guard let bitriseAccessToken = bitriseAccessToken else {
-            completion(.failure(NetworkModel.Errors.notAuthorized))
+            completion(.failure(NetworkController.Errors.notAuthorized))
             return
         }
         bitrise.getApps(preview: preview, accessToken: bitriseAccessToken, completion: completion)
+    }
+
+    public func bitriseGetBuilds(preview: Bool = false, completion: @escaping (Result<BitriseBuild, Error>) -> Void) {
+        guard let bitriseAccessToken = bitriseAccessToken else {
+            completion(.failure(NetworkController.Errors.notAuthorized))
+            return
+        }
+        bitrise.getBuilds(preview: preview, accessToken: bitriseAccessToken, completion: completion)
     }
 
 }

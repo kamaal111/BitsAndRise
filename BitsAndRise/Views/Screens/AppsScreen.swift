@@ -1,5 +1,5 @@
 //
-//  AppsScreenView.swift
+//  AppsScreen.swift
 //  BitsAndRise
 //
 //  Created by Kamaal M Farah on 15/02/2021.
@@ -8,21 +8,16 @@
 import SwiftUI
 import BitriseSDK
 
-struct AppsScreenView: View {
-    @EnvironmentObject
-    private var networkModel: NetworkModel
-
+struct AppsScreen: View {
     @ObservedObject
-    private var viewModel = ViewModel()
-
-    let preview: Bool
+    private var viewModel: ViewModel
 
     fileprivate init(preview: Bool) {
-        self.preview = preview
+        self.viewModel = ViewModel(preview: preview)
     }
 
     init() {
-        self.preview = false
+        self.viewModel = ViewModel()
     }
 
     var body: some View {
@@ -30,7 +25,7 @@ struct AppsScreenView: View {
             VStack(alignment: .leading) {
                 Text("Apps")
                     .font(.headline)
-                SearchBar(searchText: $viewModel.appsSearchText, placeHolder: "")
+                SearchBar(searchText: $viewModel.appsSearchText, placeHolder: "Search")
                     .padding(.top, 8)
                 AppsSection(apps: viewModel.filteredApps,
                             totalAppsCount: viewModel.bitriseApps?.paging.totalItemCount ?? 0)
@@ -38,22 +33,31 @@ struct AppsScreenView: View {
             .padding(.horizontal, 20)
             .padding(.vertical, 16)
         }
-        .navigationBarTitle(Text("BitsAndRise"))
-        .onAppear {
-            if networkModel.bitriseAccessToken == nil, let accessToken = viewModel.testAccessToken {
-                networkModel.setBitriseAccessToken(to: accessToken)
-            }
-            networkModel.bitriseGetApps(preview: preview) { (result: Result<BitriseApps, Error>) in
-                viewModel.setBitriseApps(with: result)
-            }
-        }
+        .navigationBarTitle(Text("Apps"))
     }
 }
 
-extension AppsScreenView {
+extension AppsScreen {
     class ViewModel: ObservableObject {
+
         @Published var bitriseApps: BitriseApps?
         @Published var appsSearchText = ""
+
+        let preview: Bool
+
+        private let networker = NetworkController.shared
+
+        fileprivate init(preview: Bool) {
+            self.preview = preview
+
+            getApps()
+        }
+
+        init() {
+            self.preview = false
+
+            getApps()
+        }
 
         var filteredApps: [BitriseApps.App] {
             guard let appsData = bitriseApps?.data else { return [] }
@@ -74,25 +78,32 @@ extension AppsScreenView {
             return accessToken
         }
 
-        func setBitriseApps(with result: Result<BitriseApps, Error>) {
-            switch result {
-            case .failure(let failure):
-                print(failure)
-                print(failure.localizedDescription)
-            case .success(let success):
-                DispatchQueue.main.async {
-                    withAnimation { [weak self] in
-                        self?.bitriseApps = success
+        private func getApps() {
+            if networker.bitriseAccessToken == nil, let accessToken = testAccessToken {
+                networker.setBitriseAccessToken(to: accessToken)
+            }
+            networker.bitriseGetApps(preview: preview) { (result: Result<BitriseApps, Error>) in
+                switch result {
+                case .failure(let failure):
+                    print(failure)
+                    print(failure.localizedDescription)
+                case .success(let success):
+                    DispatchQueue.main.async {
+                        withAnimation { [weak self] in
+                            self?.bitriseApps = success
+                        }
                     }
                 }
             }
         }
+
     }
 }
 
-struct AppsScreenView_Previews: PreviewProvider {
+struct AppsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        AppsScreenView(preview: true)
-            .environmentObject(NetworkModel())
+        NavigationView {
+            AppsScreen(preview: true)
+        }
     }
 }

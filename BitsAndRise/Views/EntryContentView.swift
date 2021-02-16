@@ -15,12 +15,18 @@ struct EntryContentView: View {
 
     var body: some View {
         TabView(selection: $tabSelection) {
-            NavigationView { AppsScreenView() }
+            NavigationView { BuildsScreen() }
+                .tabItem({
+                    Text("Builds")
+                    Image(systemName: "hammer")
+                })
+                .tag(0)
+            NavigationView { AppsScreen() }
                 .tabItem({
                     Text("Apps")
                     Image(systemName: "rectangle.grid.2x2")
                 })
-                .tag(0)
+                .tag(1)
         }
     }
 }
