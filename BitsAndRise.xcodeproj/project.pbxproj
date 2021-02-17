@@ -14,6 +14,9 @@
 		2C4A38AF25DA562000AE9432 /* AppsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4A38AE25DA562000AE9432 /* AppsScreen.swift */; };
 		2C4A38B625DA579200AE9432 /* AppsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4A38B525DA579200AE9432 /* AppsSection.swift */; };
 		2C4A38C225DA5D0900AE9432 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4A38C125DA5D0900AE9432 /* SearchBar.swift */; };
+		2C7C63B925DD00FF00A30D27 /* AppItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C63B825DD00FF00A30D27 /* AppItemView.swift */; };
+		2C7C63BE25DD015A00A30D27 /* BuildsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C63BD25DD015A00A30D27 /* BuildsSection.swift */; };
+		2C7C63C325DD01F400A30D27 /* BuildItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C63C225DD01F400A30D27 /* BuildItemView.swift */; };
 		2CA1CEDE25D7FE5B0052E0F2 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA1CEDD25D7FE5B0052E0F2 /* Secrets.plist */; };
 		2CA1CEE325D8012C0052E0F2 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1CEE225D8012C0052E0F2 /* NetworkController.swift */; };
 		2CA1CEE825D87CF50052E0F2 /* EntryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA1CEE725D87CF50052E0F2 /* EntryContentView.swift */; };
@@ -52,6 +55,9 @@
 		2C4A38AE25DA562000AE9432 /* AppsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsScreen.swift; sourceTree = "<group>"; };
 		2C4A38B525DA579200AE9432 /* AppsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsSection.swift; sourceTree = "<group>"; };
 		2C4A38C125DA5D0900AE9432 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		2C7C63B825DD00FF00A30D27 /* AppItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppItemView.swift; sourceTree = "<group>"; };
+		2C7C63BD25DD015A00A30D27 /* BuildsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildsSection.swift; sourceTree = "<group>"; };
+		2C7C63C225DD01F400A30D27 /* BuildItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildItemView.swift; sourceTree = "<group>"; };
 		2CA1CEDD25D7FE5B0052E0F2 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		2CA1CEE225D8012C0052E0F2 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		2CA1CEE725D87CF50052E0F2 /* EntryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryContentView.swift; sourceTree = "<group>"; };
@@ -133,6 +139,9 @@
 			children = (
 				2C4A38B525DA579200AE9432 /* AppsSection.swift */,
 				2C4A38C125DA5D0900AE9432 /* SearchBar.swift */,
+				2C7C63B825DD00FF00A30D27 /* AppItemView.swift */,
+				2C7C63BD25DD015A00A30D27 /* BuildsSection.swift */,
+				2C7C63C225DD01F400A30D27 /* BuildItemView.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -407,14 +416,17 @@
 			files = (
 				2CD5232925D7EA3500C2C4F5 /* BitsAndRise.xcdatamodeld in Sources */,
 				2CA1CEE325D8012C0052E0F2 /* NetworkController.swift in Sources */,
+				2C7C63C325DD01F400A30D27 /* BuildItemView.swift in Sources */,
 				2C4A38AF25DA562000AE9432 /* AppsScreen.swift in Sources */,
 				2C11CA5A25DB142C0010CCBC /* BuildsScreen.swift in Sources */,
 				2CD5231F25D7EA3500C2C4F5 /* AppDelegate.swift in Sources */,
 				2C4A38C225DA5D0900AE9432 /* SearchBar.swift in Sources */,
 				2CD5232125D7EA3500C2C4F5 /* SceneDelegate.swift in Sources */,
+				2C7C63B925DD00FF00A30D27 /* AppItemView.swift in Sources */,
 				2CA1CEE825D87CF50052E0F2 /* EntryContentView.swift in Sources */,
 				2C4A38B625DA579200AE9432 /* AppsSection.swift in Sources */,
 				2C155C9625D92C7500AAB735 /* UIViewController+extensions.swift in Sources */,
+				2C7C63BE25DD015A00A30D27 /* BuildsSection.swift in Sources */,
 				2CD5235B25D7EA8A00C2C4F5 /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

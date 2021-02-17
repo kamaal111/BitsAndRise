@@ -73,7 +73,31 @@ extension BuildListAllResponseModel.BuildListAllResponseItemModel {
 
 public extension BuildListAllResponseModel {
     static var preview: BuildListAllResponseModel {
-        let builds: [BuildListAllResponseModel.BuildListAllResponseItemModel] = []
+        let builds: [BuildListAllResponseModel.BuildListAllResponseItemModel] = [
+            .init(abortReason: "just cause",
+                  branch: "feature/future",
+                  buildNumber: 0,
+                  commitHash: "12asd",
+                  commitMessage: "start",
+                  commitViewURL: nil,
+                  isOnHold: false,
+                  machineTypeID: "mac-something",
+                  originalBuildParams: .init(branch: "master"),
+                  pullRequestID: 2,
+                  pullRequestTargetBranch: nil,
+                  pullRequestViewURL: nil,
+                  repository: AppListResponseModel.preview.data.first!,
+                  slug: "sluggish",
+                  stackIdentifier: "stack yes",
+                  status: 1,
+                  statusText: "good",
+                  tag: "1.0",
+                  triggeredBy: "Me",
+                  triggeredWorkflow: "master flow",
+                  environmentPrepareFinishedAt: Date(),
+                  finishedAt: Date(),
+                  triggeredAt: Date())
+        ]
         return BuildListAllResponseModel(data: builds, paging: PagingResponseModel(next: nil,
                                                                                    pageItemLimit: 20,
                                                                                    totalItemCount: 100))
