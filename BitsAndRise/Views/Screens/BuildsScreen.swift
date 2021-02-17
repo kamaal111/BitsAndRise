@@ -25,7 +25,7 @@ struct BuildsScreen: View {
             VStack(alignment: .leading) {
                 SearchBar(searchText: $viewModel.buildsSearchText, placeHolder: "Search")
                     .padding(.top, 8)
-                ForEach(viewModel.filteredBuilds, id: \.self) { (build: BuildListAllResponseModel.BuildListAllResponseItemModel) in
+                ForEach(viewModel.filteredBuilds, id: \.self) { build in
                     Text(build.repository.title)
                 }
             }
@@ -33,6 +33,16 @@ struct BuildsScreen: View {
             .padding(.vertical, 16)
         }
         .navigationBarTitle(Text("Builds"))
+    }
+}
+
+struct BuildsSection: View {
+    let builds: [BuildListAllResponseModel.BuildListAllResponseItemModel]
+
+    var body: some View {
+        ForEach(builds, id: \.self) { (build: BuildListAllResponseModel.BuildListAllResponseItemModel) in
+            Text(build.repository.title)
+        }
     }
 }
 

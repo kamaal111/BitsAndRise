@@ -20,17 +20,19 @@ public struct UserProfileRespModel: BitriseMockable, Hashable {
         public let paymentProcessor: String?
 
         @DateValueCodable<BitriseDateCodableStrategy> public var createdAt: Date
+    }
+}
 
-        public enum CodingKeys: String, CodingKey {
-            case username
-            case slug
-            case email
-            case avatarURL = "avatar_url"
-            case createdAt = "created_at"
-            case hasUsedOrganizationTrial = "has_used_organization_trial"
-            case dataID = "data_id"
-            case paymentProcessor = "payment_processor"
-        }
+public extension UserProfileRespModel.UserProfileDataModel {
+    enum CodingKeys: String, CodingKey {
+        case username
+        case slug
+        case email
+        case avatarURL = "avatar_url"
+        case createdAt = "created_at"
+        case hasUsedOrganizationTrial = "has_used_organization_trial"
+        case dataID = "data_id"
+        case paymentProcessor = "payment_processor"
     }
 }
 

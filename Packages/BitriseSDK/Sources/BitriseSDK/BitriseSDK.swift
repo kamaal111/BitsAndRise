@@ -15,19 +15,28 @@ public struct BitriseSDK {
         self.networker = XiphiasNet(kowalskiAnalysis: kowalskiAnalysis)
     }
 
-    public func getMe(preview: Bool = false, accessToken: String, completion: @escaping (Result<UserProfileRespModel, Error>) -> Void) {
+    public func getMe(preview: Bool = false,
+                      accessToken: String,
+                      completion: @escaping (Result<UserProfileRespModel, Error>) -> Void) {
         get(preview: preview, endpoint: .me, accessToken: accessToken, completion: completion)
     }
 
-    public func getApps(preview: Bool = false, accessToken: String, completion: @escaping (Result<AppListResponseModel, Error>) -> Void) {
+    public func getApps(preview: Bool = false,
+                        accessToken: String,
+                        completion: @escaping (Result<AppListResponseModel, Error>) -> Void) {
         get(preview: preview, endpoint: .apps, accessToken: accessToken, completion: completion)
     }
 
-    public func getBuilds(preview: Bool = false, accessToken: String, completion: @escaping (Result<BuildListAllResponseModel, Error>) -> Void) {
+    public func getBuilds(preview: Bool = false,
+                          accessToken: String,
+                          completion: @escaping (Result<BuildListAllResponseModel, Error>) -> Void) {
         get(preview: preview, endpoint: .builds, accessToken: accessToken, completion: completion)
     }
 
-    private func get<T: BitriseMockable>(preview: Bool, endpoint: Endpoint, accessToken: String, completion: @escaping (Result<T, Error>) -> Void) {
+    private func get<T: BitriseMockable>(preview: Bool,
+                                         endpoint: Endpoint,
+                                         accessToken: String,
+                                         completion: @escaping (Result<T, Error>) -> Void) {
         guard !preview else {
             completion(.success(.preview))
             return

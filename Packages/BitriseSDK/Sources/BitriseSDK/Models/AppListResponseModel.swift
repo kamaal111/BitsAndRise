@@ -23,7 +23,7 @@ public extension AppListResponseModel {
             AppResponseItemModel(avatarURL: "",
                 isDisabled: false,
                 isPublic: false,
-                owner: AppResponseItemModel.OwnerAccountResponseModel(accountType: "account type", name: "Me is the name", slug: "123brt"),
+                owner: .init(accountType: "account type", name: "Me is the name", slug: "123brt"),
                 projectType: "ios",
                 provider: "Bitrise",
                 repoOwner: "I am",
@@ -35,7 +35,7 @@ public extension AppListResponseModel {
             AppResponseItemModel(avatarURL: "",
                 isDisabled: false,
                 isPublic: false,
-                owner: AppResponseItemModel.OwnerAccountResponseModel(accountType: "account type", name: "Me is the name", slug: "123brt"),
+                owner: .init(accountType: "account type", name: "Me is the name", slug: "123brt"),
                 projectType: "android",
                 provider: "Bitrise",
                 repoOwner: "I am",
@@ -45,6 +45,6 @@ public extension AppListResponseModel {
                 status: 1,
                 title: "The big app")
         ]
-        return AppListResponseModel(data: apps, paging: PagingResponseModel(next: "yes", pageItemLimit: 20, totalItemCount: 20))
+        return AppListResponseModel(data: apps, paging: .init(next: "yes", pageItemLimit: 20, totalItemCount: 20))
     }
 }

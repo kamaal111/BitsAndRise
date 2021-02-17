@@ -33,7 +33,8 @@ final public class NetworkController {
         bitriseAccessToken = accessToken
     }
 
-    public func bitriseGetMe(preview: Bool = false, completion: @escaping (Result<UserProfileRespModel, Error>) -> Void) {
+    public func bitriseGetMe(preview: Bool = false,
+                             completion: @escaping (Result<UserProfileRespModel, Error>) -> Void) {
         guard let bitriseAccessToken = bitriseAccessToken else {
             completion(.failure(NetworkController.Errors.notAuthorized))
             return
@@ -41,7 +42,8 @@ final public class NetworkController {
         bitrise.getMe(preview: preview, accessToken: bitriseAccessToken, completion: completion)
     }
 
-    public func bitriseGetApps(preview: Bool = false, completion: @escaping (Result<AppListResponseModel, Error>) -> Void) {
+    public func bitriseGetApps(preview: Bool = false,
+                               completion: @escaping (Result<AppListResponseModel, Error>) -> Void) {
         guard let bitriseAccessToken = bitriseAccessToken else {
             completion(.failure(NetworkController.Errors.notAuthorized))
             return
@@ -49,7 +51,8 @@ final public class NetworkController {
         bitrise.getApps(preview: preview, accessToken: bitriseAccessToken, completion: completion)
     }
 
-    public func bitriseGetBuilds(preview: Bool = false, completion: @escaping (Result<BuildListAllResponseModel, Error>) -> Void) {
+    public func bitriseGetBuilds(preview: Bool = false,
+                                 completion: @escaping (Result<BuildListAllResponseModel, Error>) -> Void) {
         guard let bitriseAccessToken = bitriseAccessToken else {
             completion(.failure(NetworkController.Errors.notAuthorized))
             return

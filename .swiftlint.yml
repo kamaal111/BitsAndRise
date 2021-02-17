@@ -1,0 +1,11 @@
+disabled_rules:
+  - multiple_closures_with_trailing_closure
+  - orphaned_doc_comment
+excluded:
+  - BitsAndRise/Models/CoreData/*.swift
+  - Packages/*/Package.swift
+  - Packages/*/Tests
+  - Tests
+identifier_name:
+  min_length:
+    warning: 2

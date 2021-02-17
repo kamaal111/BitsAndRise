@@ -12,7 +12,7 @@ public struct PagingResponseModel: Codable, Hashable {
     public let pageItemLimit: Int
     public let totalItemCount: Int
 
-    public enum CodingKeys: String ,CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case next
         case pageItemLimit = "page_item_limit"
         case totalItemCount = "total_item_count"

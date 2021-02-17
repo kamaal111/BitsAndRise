@@ -21,7 +21,7 @@ public struct AppResponseItemModel: Codable, Hashable {
     public let status: Int
     public let title: String
 
-    public enum CodingKeys: String ,CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case avatarURL = "avatar_url"
         case isDisabled = "is_disabled"
         case isPublic = "is_public"
@@ -40,11 +40,13 @@ public struct AppResponseItemModel: Codable, Hashable {
         public let accountType: String
         public let name: String
         public let slug: String
+    }
+}
 
-        public enum CodingKeys: String ,CodingKey {
-            case accountType = "account_type"
-            case name
-            case slug
-        }
+extension AppResponseItemModel.OwnerAccountResponseModel {
+    public enum CodingKeys: String, CodingKey {
+        case accountType = "account_type"
+        case name
+        case slug
     }
 }
