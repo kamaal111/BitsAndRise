@@ -51,6 +51,7 @@ struct AppItemView: View {
             image = Image(systemName: "applelogo")
             size = CGSize(width: 20, height: maxHeight)
         case "android":
+            /// - TODO: In enum
             image = Image("AndroidLogo")
             size = CGSize(width: 27, height: maxHeight)
         default:

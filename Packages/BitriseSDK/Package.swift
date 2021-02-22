@@ -12,7 +12,7 @@ let package = Package(
             targets: ["BitriseSDK"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/kamaal111/XiphiasNet", from: "3.0.5")
+        .package(url: "https://github.com/kamaal111/XiphiasNet", from: "3.0.5"),
     ],
     targets: [
         .target(

@@ -52,6 +52,7 @@ extension BuildsScreen {
         }
 
         init() {
+            /// - TODO: Set to true with enviroment flag
             self.preview = false
 
             getBuilds()

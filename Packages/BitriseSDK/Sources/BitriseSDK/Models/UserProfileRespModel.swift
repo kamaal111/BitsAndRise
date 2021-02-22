@@ -36,16 +36,24 @@ public extension UserProfileRespModel.UserProfileDataModel {
     }
 }
 
+#if DEBUG
 public extension UserProfileRespModel {
     static var preview: UserProfileRespModel = {
-        let date = Date()
-        return UserProfileRespModel(data: UserProfileDataModel(username: "Userios",
-                                                               slug: "b1234h213",
-                                                               email: "userios@email.com",
-                                                               avatarURL: "",
-                                                               hasUsedOrganizationTrial: false,
-                                                               dataID: 123,
-                                                               paymentProcessor: "Stripe",
-                                                               createdAt: date))
+        let json = """
+        {
+            "data": {
+                "username": "Tester",
+                "slug": "dd84000079211d2",
+                "email": "tester@tester.com",
+                "avatar_url": "",
+                "created_at": "2020-01-30T15:57:49.196483Z",
+                "has_used_organization_trial": false,
+                "data_id": 40000,
+                "payment_processor": "Stripe"
+            }
+        }
+        """.data(using: .utf8)!
+        return try! JSONDecoder().decode(UserProfileRespModel.self, from: json)
     }()
 }
+#endif

@@ -14,9 +14,6 @@ struct BuildsSection: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Showing \(builds.count)/\(totalBuildsCount) builds")
-                .foregroundColor(.secondary)
-                .padding(.top, 8)
             VStack(alignment: .leading) {
                 ForEach(builds, id: \.self) { (build: BuildListAllResponseModel.BuildListAllResponseItemModel) in
                     VStack {
@@ -26,6 +23,7 @@ struct BuildsSection: View {
                 }
                 .transition(.move(edge: .trailing))
                 .animation(.default)
+                .padding(.bottom, 2)
                 Divider()
             }
             .padding(.vertical, 8)
